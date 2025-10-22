@@ -160,37 +160,51 @@ python main.py
 
 ## 📚 Challenge Categories / Categorías de Desafíos
 
-### 🎓 Course Topics / Temas del Curso (33 challenges total):
-Each category has 3 difficulty levels (Easy, Medium, Hard) / Cada categoría tiene 3 niveles de dificultad (Fácil, Medio, Difícil):
+### 🎓 Course Topics / Temas del Curso (165 challenges total):
+Each category has **15 challenges** with balanced difficulty levels (5 easy + 5 medium + 5 hard) / Cada categoría tiene **15 desafíos** con niveles de dificultad balanceados (5 fácil + 5 medio + 5 difícil):
 
-1. **📐 Mathematics / Matemáticas**: Basic operations, prime numbers, complex calculations
-2. **🔤 Strings**: Character counting, palindromes, advanced manipulation
-3. **⚙️ Algorithms / Algoritmos**: Linear search, merge sort, bubble sort
-4. **📋 List Comprehensions / Comprensión de Listas**: Filtering, nested structures, transformations
-5. **λ Lambdas**: Simple operations, map/filter, advanced combinations
-6. **🔍 Regular Expressions / Expresiones Regulares**: Pattern matching, phone extraction, email validation
-7. **📂 File Handling / Manejo de Ficheros**: Reading files, word counting, JSON management
-8. **📦 Package Management / Manejo de Paquetes**: Basic imports, system info, advanced integration
-9. **📅 Dates / Fechas**: Simple operations, calculations, business day processing
-10. **⚠️ Error Types / Tipos de Error**: Basic handling, multiple exceptions, robust systems
-11. **🔄 Higher Order Functions / Funciones de Orden Superior**: Function parameters, composition, pipelines
+1. **📐 Mathematics / Matemáticas** (15 challenges): Basic operations, prime numbers, complex calculations, matrix operations, number theory
+2. **🔤 Strings** (15 challenges): Character counting, palindromes, advanced manipulation, pattern matching, text analysis
+3. **⚙️ Algorithms / Algoritmos** (15 challenges): Linear search, merge sort, bubble sort, quicksort, dynamic programming
+4. **📋 List Comprehensions / Comprensión de Listas** (15 challenges): Filtering, nested structures, transformations, matrix operations
+5. **λ Lambdas** (15 challenges): Simple operations, map/filter/reduce, advanced combinations, currying
+6. **🔍 Regular Expressions / Expresiones Regulares** (15 challenges): Pattern matching, phone extraction, email validation, log parsing
+7. **📂 File Handling / Manejo de Ficheros** (15 challenges): Reading files, word counting, JSON management, CSV processing, binary files
+8. **📦 Package Management / Manejo de Paquetes** (15 challenges): Basic imports, system info, advanced integration, threading
+9. **📅 Dates / Fechas** (15 challenges): Simple operations, calculations, business day processing, timezone handling
+10. **⚠️ Error Types / Tipos de Error** (15 challenges): Basic handling, multiple exceptions, robust systems, custom exceptions
+11. **🔄 Higher Order Functions / Funciones de Orden Superior** (15 challenges): Function parameters, composition, pipelines, decorators
+
+### Distribution Summary:
+- **Total Challenges**: 165
+- **Easy Challenges**: 55 (5 per category)
+- **Medium Challenges**: 55 (5 per category)
+- **Hard Challenges**: 55 (5 per category)
+- **Categories**: 11 programming topics
+- **Perfect Balance**: Each category has exactly the same distribution
 
 ### Example Challenges by Difficulty:
 
-#### Easy / Fácil:
+#### Easy / Fácil (55 total):
 - **Sum of Two Numbers**: Basic mathematical operations
 - **Simple Lambda Operations**: Introduction to lambda functions
 - **Basic Exception Handling**: Simple error management
+- **String Reverser**: String manipulation basics
+- **Linear Search**: Basic algorithm implementation
 
-#### Medium / Medio:
+#### Medium / Medio (55 total):
 - **Palindrome**: String processing and logic
 - **Date Calculator**: Working with datetime module
 - **File Word Counter**: File operations and text processing
+- **Binary Search**: Efficient searching algorithms
+- **Lambda Functions with Map**: Functional programming
 
-#### Hard / Difícil:
+#### Hard / Difícil (55 total):
 - **Email Validation with Regex**: Complex pattern matching
 - **Advanced Package Integration**: Multiple module coordination
 - **Higher Order Functions**: Function pipelines and decorators
+- **Dynamic Programming - Knapsack**: Advanced algorithms
+- **Lazy Evaluation Pipeline**: Generator-based processing
 
 ## 🌐 Multilingual Support / Soporte Multiidioma
 
@@ -281,19 +295,22 @@ for c in challenges: print(f'- {c[\"title\"]} ({c[\"difficulty\"]})')
 ## 📈 Statistics / Estadísticas
 
 The generator includes a comprehensive statistics system that shows:
-- **Total challenges**: 33 challenges across all categories
-- **Distribution by difficulty**: 11 Easy, 11 Medium, 11 Hard
-- **Distribution by category**: 3 challenges per category (balanced learning)
-- **Course coverage**: All programming course topics included
+- **Total challenges**: 165 challenges across all categories
+- **Distribution by difficulty**: 55 Easy, 55 Medium, 55 Hard
+- **Distribution by category**: 15 challenges per category (perfectly balanced learning)
+- **Course coverage**: All programming course topics included with extensive practice
 
 ### Current Database Stats:
 ```
-📊 Total challenges: 33
+📊 Total challenges: 165
 🔥 By difficulty:
-   Easy/Fácil: 11
-   Medium/Medio: 11  
-   Hard/Difícil: 11
-📂 By category: 11 categories × 3 challenges each
+   Easy/Fácil: 55
+   Medium/Medio: 55  
+   Hard/Difícil: 55
+📂 By category: 11 categories × 15 challenges each
+   - 5 Easy per category
+   - 5 Medium per category
+   - 5 Hard per category
 ```
 
 ## 🤝 Contributions
@@ -316,13 +333,15 @@ Contributions are welcome! To contribute:
 - **Scalable design** for adding new languages and challenges / Diseño escalable para agregar idiomas y desafíos
 
 ### Key Improvements Made:
-- ✅ **33 challenges** covering all course topics
-- ✅ **Balanced difficulty** (11 easy + 11 medium + 11 hard)
+- ✅ **165 challenges** covering all course topics (5x expansion!)
+- ✅ **Perfectly balanced difficulty** (55 easy + 55 medium + 55 hard)
+- ✅ **5 challenges per difficulty level** per category for extensive practice
 - ✅ **Multilingual support** (English ⇄ Spanish)
 - ✅ **Real-time language switching**
 - ✅ **Enhanced user interface** with difficulty indicators
 - ✅ **Comprehensive course coverage** (11 programming topics)
 - ✅ **Professional naming** (English naming conventions)
+- ✅ **Scalable architecture** for future expansions
 
 ## 🎓 Educational Purpose / Propósito Educativo
 
@@ -345,6 +364,14 @@ This project is designed for / Este proyecto está diseñado para:
 This project is open source and available under the MIT License.
 
 ## 🚀 Version History / Historial de Versiones
+
+### v3.0 - Massive Expansion (165 Challenges)
+- ✅ Expanded from 33 to 165 challenges (5x increase!)
+- ✅ 5 challenges per difficulty level per category
+- ✅ Perfect balance: 55 easy, 55 medium, 55 hard
+- ✅ Comprehensive coverage of all programming topics
+- ✅ Enhanced challenge variety and complexity
+- ✅ Improved learning progression
 
 ### v2.0 - Multilingual & Complete Course Coverage
 - ✅ Added Spanish language support

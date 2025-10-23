@@ -6,7 +6,7 @@ This module contains the main logic for selecting and filtering programming chal
 
 import random
 from typing import List, Dict, Any, Optional
-from .data import CHALLENGES_DB
+from .data import get_challenges_db
 
 
 class ChallengeGenerator:
@@ -14,11 +14,25 @@ class ChallengeGenerator:
     Main class for generating challenges based on different criteria.
     """
     
-    def __init__(self):
+    def __init__(self, language: str = 'en'):
         """
         Initialize the generator with the challenges database.
+        
+        Args:
+            language (str): Language code ('en' for English, 'es' for Spanish).
         """
-        self.challenges = CHALLENGES_DB
+        self.language = language
+        self.challenges = get_challenges_db(language)
+    
+    def set_language(self, language: str):
+        """
+        Change the language and reload the challenges database.
+        
+        Args:
+            language (str): Language code ('en' or 'es').
+        """
+        self.language = language
+        self.challenges = get_challenges_db(language)
     
     def get_random_challenge(self) -> Dict[str, Any]:
         """

@@ -51,7 +51,9 @@ def show_challenge(challenge):
     translated_difficulty = language_manager.get_difficulty_translation(difficulty)
     print(f"{language_manager.get_text('difficulty')}{translated_difficulty}")
     
-    print(f"{language_manager.get_text('category')}{challenge.get('category', language_manager.get_text('not_specified')).title()}")
+    category = challenge.get('category', language_manager.get_text('not_specified'))
+    translated_category = language_manager.get_category_translation(category) if category != language_manager.get_text('not_specified') else category
+    print(f"{language_manager.get_text('category')}{translated_category}")
     print(f"{language_manager.get_text('points')}{challenge.get('points', 0)}")
     print(f"{language_manager.get_text('example_input')}{challenge.get('example_input', 'Not available')}")
     print(f"{language_manager.get_text('example_output')}{challenge.get('example_output', 'Not available')}")
@@ -67,7 +69,7 @@ def show_challenge(challenge):
 
 def filter_by_difficulty(generator):
     """Handle filtering by difficulty."""
-    difficulties = get_difficulties()
+    difficulties = get_difficulties(language_manager.current_language)
     
     print(f"\n{language_manager.get_text('available_difficulties')}")
     for i, diff in enumerate(difficulties, 1):
@@ -107,11 +109,12 @@ def filter_by_difficulty(generator):
 
 def filter_by_category(generator):
     """Handle filtering by category."""
-    categories = get_categories()
+    categories = get_categories(language_manager.current_language)
     
     print(f"\n{language_manager.get_text('available_categories')}")
     for i, cat in enumerate(categories, 1):
-        print(f"{i}. {cat.title()}")
+        translated_cat = language_manager.get_category_translation(cat)
+        print(f"{i}. {translated_cat}")
     
     try:
         option = int(input(f"\n{language_manager.get_text('select_category')}")) - 1
@@ -120,7 +123,8 @@ def filter_by_category(generator):
             challenges = generator.filter_by_category(chosen_category)
             
             if challenges:
-                print(f"\n{language_manager.get_text('challenges_in_category').format(chosen_category.title())}")
+                translated_cat = language_manager.get_category_translation(chosen_category)
+                print(f"\n{language_manager.get_text('challenges_in_category').format(translated_cat)}")
                 for i, challenge in enumerate(challenges, 1):
                     difficulty = challenge.get('difficulty', 'unknown')
                     translated_difficulty = language_manager.get_difficulty_translation(difficulty)
@@ -135,7 +139,8 @@ def filter_by_category(generator):
                 except ValueError:
                     print(language_manager.get_text("enter_valid_number"))
             else:
-                print(language_manager.get_text("no_challenges_category").format(chosen_category))
+                translated_cat = language_manager.get_category_translation(chosen_category)
+                print(language_manager.get_text("no_challenges_category").format(translated_cat))
         else:
             print(language_manager.get_text("invalid_option"))
     except ValueError:
@@ -168,7 +173,8 @@ def show_statistics(generator):
     
     print(f"\n{language_manager.get_text('by_category')}")
     for cat, count in stats['by_category'].items():
-        print(f"   {cat.title()}: {count}")
+        translated_cat = language_manager.get_category_translation(cat)
+        print(f"   {translated_cat}: {count}")
     
     print("="*40)
 
@@ -194,12 +200,15 @@ def show_language_menu():
             new_lang = lang_codes[option]
             if language_manager.set_language(new_lang):
                 print(f"\n{language_manager.get_text('language_changed')}")
+                return new_lang  # Return the new language to update generator
             else:
                 print(language_manager.get_text("invalid_option"))
         else:
             print(language_manager.get_text("invalid_option"))
     except ValueError:
         print(language_manager.get_text("enter_valid_number"))
+    
+    return None  # Return None if no change
 
 
 def show_help():
@@ -221,7 +230,9 @@ def show_help():
 
 def main():
     """Main function that handles the program flow."""
-    generator = ChallengeGenerator()
+    # Initialize generator with current language
+    current_lang = language_manager.current_language
+    generator = ChallengeGenerator(current_lang)
     
     print(language_manager.get_text("welcome_message"))
     print(language_manager.get_text("welcome_subtitle"))
@@ -249,7 +260,9 @@ def main():
                 show_statistics(generator)
             
             elif option == "6":
-                show_language_menu()
+                new_lang = show_language_menu()
+                if new_lang:  # If language changed, update generator
+                    generator.set_language(new_lang)
             
             elif option == "7":
                 show_help()

@@ -4,7 +4,15 @@ Challenge Database Verification Script
 Verifies that all challenges are properly distributed
 """
 
-from src.challenge_core import ChallengeGenerator, CHALLENGES_DB, get_categories
+import sys
+from pathlib import Path
+
+# Agregar el directorio raíz al path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+from src.challenge_core import ChallengeGenerator
+from src.challenge_core.data import CHALLENGES_DB_EN, get_categories
 
 def verify_database():
     """Verify challenge database integrity"""
@@ -49,7 +57,7 @@ def verify_database():
     print()
     
     # Verify unique IDs
-    ids = [c['id'] for c in CHALLENGES_DB]
+    ids = [c['id'] for c in CHALLENGES_DB_EN]
     unique_ids = set(ids)
     
     print(f"🔑 ID Verification:")

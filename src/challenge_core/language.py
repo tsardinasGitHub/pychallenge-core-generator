@@ -216,6 +216,60 @@ class LanguageManager:
             "hard": self.get_text("hard")
         }
         return difficulty_map.get(difficulty.lower(), difficulty.title())
+    
+    def get_category_translation(self, category):
+        """Get translated category name."""
+        category_map = {
+            "en": {
+                "mathematics": "Mathematics",
+                "strings": "Strings",
+                "algorithms": "Algorithms",
+                "list comprehension": "List Comprehension",
+                "regular expressions": "Regular Expressions",
+                "dates": "Dates",
+                "higher order functions": "Higher Order Functions",
+                "lambdas": "Lambdas",
+                "file handling": "File Handling",
+                "package management": "Package Management",
+                "error types": "Error Types",
+                # Spanish categories (for backwards compatibility)
+                "matemáticas": "Mathematics",
+                "cadenas": "Strings",
+                "algoritmos": "Algorithms",
+                "comprension de listas": "List Comprehension",
+                "expresiones regulares": "Regular Expressions",
+                "fechas": "Dates",
+                "funciones de orden superior": "Higher Order Functions",
+                "manejo de ficheros": "File Handling",
+                "manejo de paquetes": "Package Management",
+                "tipos de error": "Error Types"
+            },
+            "es": {
+                "mathematics": "Matemáticas",
+                "strings": "Cadenas",
+                "algorithms": "Algoritmos",
+                "list comprehension": "Comprensión de Listas",
+                "regular expressions": "Expresiones Regulares",
+                "dates": "Fechas",
+                "higher order functions": "Funciones de Orden Superior",
+                "lambdas": "Lambdas",
+                "file handling": "Manejo de Ficheros",
+                "package management": "Manejo de Paquetes",
+                "error types": "Tipos de Error",
+                # Spanish categories (for backwards compatibility)
+                "matemáticas": "Matemáticas",
+                "cadenas": "Cadenas",
+                "algoritmos": "Algoritmos",
+                "comprension de listas": "Comprensión de Listas",
+                "expresiones regulares": "Expresiones Regulares",
+                "fechas": "Fechas",
+                "funciones de orden superior": "Funciones de Orden Superior",
+                "manejo de ficheros": "Manejo de Ficheros",
+                "manejo de paquetes": "Manejo de Paquetes",
+                "tipos de error": "Tipos de Error"
+            }
+        }
+        return category_map[self.current_language].get(category.lower(), category.title())
 
 
 # Global language manager instance
